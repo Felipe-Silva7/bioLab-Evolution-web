@@ -67,6 +67,29 @@ export default function Header() {
           </div>
         </div>
         
+     <div className="mb-3">
+  <div className="md:hidden grid grid-cols-3 gap-2 mt-2">
+    <div className="px-3 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
+      <div className="text-[10px] text-gray-400">Conhecimento</div>
+      <div className="text-sm font-bold text-cyan-400">
+        {formatNumber(gameState.knowledge)}
+      </div>
+    </div>
+    <div className="px-3 py-2 rounded-lg bg-green-500/10 border border-green-500/30">
+      <div className="text-[10px] text-gray-400">Financiamento</div>
+      <div className="text-sm font-bold text-green-400">
+        ${formatNumber(gameState.funding)}
+      </div>
+    </div>
+    <div className="px-3 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
+      <div className="text-[10px] text-gray-400">Reputação</div>
+      <div className="text-sm font-bold text-purple-400">
+        {gameState.reputation}%
+      </div>
+    </div>
+  </div>
+</div>
+        
         <div className="bg-black/40 rounded-full h-2 overflow-hidden">
           <div 
             className="h-full bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-500"
