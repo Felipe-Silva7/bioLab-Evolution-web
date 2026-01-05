@@ -145,13 +145,24 @@ export default function CultureGrowthGame({ onComplete }) {
       
       <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4">
         <div className="text-xs uppercase tracking-wide text-green-400 font-bold mb-2">
-          📚 Sobre Cultivo de Micro-organismos
+          📚 Como jogar e Aprender
         </div>
-        <p className="text-sm text-gray-300 leading-relaxed">
-          Combine 3 ou mais nutrientes do mesmo tipo para alimentar as células! 
-          Glicose fornece energia, aminoácidos constroem proteínas, minerais são cofatores enzimáticos, 
-          e vitaminas são essenciais para metabolismo.
-        </p>
+        <div className="text-sm text-gray-300 leading-relaxed space-y-2">
+          <p>
+            <strong>Objetivo:</strong> Alimente as células para que elas cresçam antes que a contaminação (barra vermelha) tome conta!
+          </p>
+          <p>
+            <strong>Como jogar:</strong> Clique em um nutriente e depois em outro vizinho para trocá-los de lugar. Forme linhas ou colunas de 3 iguais.
+          </p>
+          <ul className="list-disc pl-4 space-y-1 mt-2 text-xs text-gray-400">
+            <li>🍬 <strong>Glicose:</strong> Energia vital para a célula.</li>
+            <li>🧪 <strong>Aminoácidos:</strong> "Tijolos" para construir proteínas.</li>
+            <li>💎 <strong>Minerais:</strong> Ajudam as enzimas a funcionar.</li>
+          </ul>
+          <p className="mt-2 font-semibold text-green-400">
+            Dica: Você precisa de 500 pontos para passar de nível e desbloquear o Termociclador!
+          </p>
+        </div>
       </div>
       
       <div className="flex gap-4">

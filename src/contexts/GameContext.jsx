@@ -4,12 +4,12 @@ import { GAME_CONFIG } from '../utils/constants';
 const GameContext = createContext();
 
 const initialGameState = {
-  knowledge: 0,
-  funding: 500,
-  reputation: 50,
-  ethicsScore: 50,
-  experience: 0,
-  level: 1,
+  knowledge: 50000,
+  funding: 100000,
+  reputation: 100,
+  ethicsScore: 100,
+  experience: 50000,
+  level: 10,
   act: 1,
   completedExperiments: [],
   unlockedExperiments: ['culture_growth'],

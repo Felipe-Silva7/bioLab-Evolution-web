@@ -2,12 +2,14 @@ import React from 'react';
 import { Beaker, Zap, Activity, Trophy, BookOpen } from 'lucide-react';
 import { useGame } from '../../contexts/GameContext';
 import { EQUIPMENT_SHOP } from '../../utils/constants';
+import OnboardingModal from '../layout/OnboardingModal';
 
 export default function LabStation() {
   const { gameState } = useGame();
 
   return (
     <div className="grid md:grid-cols-3 gap-6">
+      <OnboardingModal />
       <div className="md:col-span-2 space-y-6">
         <div className="bg-black/40 backdrop-blur-xl rounded-2xl border border-cyan-500/30 p-8">
           <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -58,13 +60,13 @@ export default function LabStation() {
           
           <div className="space-y-3">
             {Object.entries(gameState.equipment)
-              .filter(([_, eq]) => eq.owned)
+              .filter(([id, eq]) => eq.owned && EQUIPMENT_SHOP[id])
               .map(([id, eq]) => (
                 <div key={id} className="bg-purple-500/10 rounded-lg p-3 border border-purple-500/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="text-2xl">{EQUIPMENT_SHOP[id]?.icon}</span>
-                      <span className="text-sm font-semibold">{EQUIPMENT_SHOP[id]?.name}</span>
+                      <span className="text-2xl">{EQUIPMENT_SHOP[id].icon}</span>
+                      <span className="text-sm font-semibold">{EQUIPMENT_SHOP[id].name}</span>
                     </div>
                     <span className="text-xs text-green-400">✓ Ativo</span>
                   </div>

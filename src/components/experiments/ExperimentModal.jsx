@@ -3,6 +3,9 @@ import { useGame } from '../../contexts/GameContext';
 import { EXPERIMENTS } from '../../utils/constants';
 import PCRMinigame from './minigames/PCRMinigame';
 import CultureGrowthGame from './minigames/CultureGrowthGame';
+import DNASequencingPuzzle from './minigames/DNASequencingPuzzle';
+import FermentationControl from './minigames/FermentationControl';
+import CRISPREditor from './minigames/CRISPREditor';
 
 export default function ExperimentModal({ experimentId, onClose }) {
   const { dispatch } = useGame();
@@ -38,8 +41,20 @@ export default function ExperimentModal({ experimentId, onClose }) {
         {experimentId === 'culture_growth' && (
           <CultureGrowthGame onComplete={handleComplete} />
         )}
+
+        {experimentId === 'dna_sequencing' && (
+          <DNASequencingPuzzle onComplete={handleComplete} />
+        )}
+
+        {experimentId === 'fermentation' && (
+          <FermentationControl onComplete={handleComplete} />
+        )}
+
+        {experimentId === 'crispr_editing' && (
+          <CRISPREditor onComplete={handleComplete} />
+        )}
         
-        {!['pcr_amplification', 'culture_growth'].includes(experimentId) && (
+        {!['pcr_amplification', 'culture_growth', 'dna_sequencing', 'fermentation', 'crispr_editing'].includes(experimentId) && (
           <div className="text-center py-12">
             <p className="text-gray-400 mb-6">Minigame em desenvolvimento</p>
             <button
