@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# 🧬 BioLab Evolution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Um simulador de laboratório de biotecnologia gamificado.**
+> Desenvolvido por **FelipeDev**.
 
-## Available Scripts
+O **BioLab Evolution** é uma aplicação web interativa desenvolvida em React que simula a carreira de um cientista em biotecnologia. O jogo combina mecânicas de aprendizado (quizzes), gestão de recursos (compra de equipamentos) e minigames práticos que simulam procedimentos reais de laboratório (PCR, Cultura Celular, CRISPR, etc.).
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este projeto foi construído com uma stack moderna e robusta:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **Frontend**: [React 19](https://react.dev/) (Hooks, Context API)
+*   **Estilização**: [Tailwind CSS](https://tailwindcss.com/) (Design responsivo e moderno)
+*   **Ícones**: [Lucide React](https://lucide.dev/)
+*   **Roteamento**: [React Router DOM](https://reactrouter.com/)
+*   **Gerenciamento de Estado**: React Context API (`GameContext`, `AuthContext`)
+*   **Backend / Persistência**: Supabase (Integração preparada) & LocalStorage
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Estrutura do Projeto
 
-### `npm run build`
+A organização das pastas segue uma arquitetura modular para facilitar a manutenção e escalabilidade:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+src/
+├── components/         # Componentes React reutilizáveis
+│   ├── common/         # Botões, Modais, Loaders genéricos
+│   ├── experiments/    # Lógica e UI dos Experimentos
+│   │   └── minigames/  # Os 5 minigames principais (PCR, CRISPR, etc.)
+│   ├── lab/            # Componentes da Bancada Principal
+│   ├── layout/         # Header, Footer, Navigation
+│   ├── progress/       # Gráficos de estatísticas e conquistas
+│   ├── quiz/           # Sistema de perguntas e respostas
+│   └── shop/           # Loja de equipamentos
+├── contexts/           # Estados Globais (Game, Auth, Theme)
+├── data/               # Arquivos JSON estáticos (perguntas, equipamentos, história)
+├── hooks/              # Custom Hooks (useGame, useSound, etc.)
+├── pages/              # Visualizações de Rota (Pages)
+├── services/           # Lógica de negócios e chamadas de API
+├── styles/             # Configurações globais de CSS
+└── utils/              # Funções auxiliares e constantes
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Como Executar Localmente
 
-### `npm run eject`
+Siga os passos abaixo para rodar o projeto na sua máquina:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1.  **Clone o repositório** (ou baixe os arquivos):
+    ```bash
+    git clone https://github.com/seu-usuario/biolab-evolution.git
+    cd biolab-evolution
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.  **Instale as dependências**:
+    ```bash
+    npm install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3.  **Inicie o servidor de desenvolvimento**:
+    ```bash
+    npm start
+    ```
+    O jogo abrirá automaticamente em `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ☁️ Como Fazer Deploy na Vercel
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este projeto está pronto para ser hospedado na Vercel com zero configuração complexa.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.  Crie uma conta na [Vercel](https://vercel.com/).
+2.  Instale a Vercel CLI (opcional) ou conecte seu repositório GitHub.
+3.  **Via Dashboard da Vercel**:
+    *   Clique em "Add New Project".
+    *   Importe o repositório do GitHub.
+    *   Em "Framework Preset", selecione **Create React App**.
+    *   Clique em **Deploy**.
 
-### Code Splitting
+A Vercel detectará automaticamente o comando de build (`npm run build`) e a pasta de saída (`build/`).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📖 Manual do Usuário
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Para entender as mecânicas do jogo, objetivos e como jogar cada minigame, consulte o arquivo:
+👉 [**MANUAL_DO_USUARIO.md**](./MANUAL_DO_USUARIO.md)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 👨‍💻 Autor
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Desenvolvido com ❤️ e muito café por **FelipeDev**.
+*Fins educacionais - Projeto Integrador.*

@@ -26,8 +26,13 @@ const Footer = () => {
             </span>
           </div>
           
-          <div className="text-xs text-gray-500">
-            © {new Date().getFullYear()} - Fins educacionais
+          <div className="flex flex-col items-center gap-1">
+            <div className="text-sm font-medium text-gray-300">
+              Desenvolvido por <span className="text-cyan-400 font-bold">FelipeDev</span>
+            </div>
+            <div className="text-xs text-gray-500">
+              © {new Date().getFullYear()} BioLab Evolution - Fins educacionais
+            </div>
           </div>
         </div>
       </div>

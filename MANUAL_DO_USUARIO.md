@@ -97,3 +97,6 @@ Você comprou o microscópio e a incubadora, mas eles são **passivos** ou **pr�
 *   **Biorreator**: **Obrigatório** para desbloquear o jogo de Fermentação.
 
 **Dica**: Se você tem dinheiro, priorize comprar o **Termociclador** agora para sair do nível 1!
+
+---
+*Desenvolvido por FelipeDev*
