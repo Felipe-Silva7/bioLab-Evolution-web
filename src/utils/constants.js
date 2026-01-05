@@ -5,6 +5,7 @@ export const GAME_CONFIG = {
   tickRate: 100,
   saveInterval: 5000,
   xpPerLevel: 1000,
+  godMode: true,
 };
 
 export const EXPERIMENTS = {

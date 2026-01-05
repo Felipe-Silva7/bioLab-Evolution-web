@@ -1,13 +1,14 @@
 import React from 'react';
 import { ShoppingBag, Zap, TrendingUp, Shield } from 'lucide-react';
 import { useGame } from '../../contexts/GameContext';
+import { GAME_CONFIG } from '../../utils/constants';
 
 const EquipmentShopCard = ({ equipment, onBuy }) => {
   const { gameState } = useGame();
   
   const isOwned = gameState.equipment[equipment.id]?.owned;
-  const canAfford = gameState.funding >= equipment.cost;
-  const meetsLevel = gameState.level >= (equipment.requiredLevel || 1);
+  const canAfford = gameState.funding >= equipment.cost || GAME_CONFIG.godMode;
+  const meetsLevel = GAME_CONFIG.godMode || gameState.level >= (equipment.requiredLevel || 1);
 
   const getIcon = (iconName) => {
     switch (iconName) {

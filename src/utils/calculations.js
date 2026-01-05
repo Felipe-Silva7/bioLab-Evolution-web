@@ -82,9 +82,11 @@ export const Calculations = {
   
   // Equipment calculations
   calculateEquipmentCost(baseCost, ownedCount, level = 0) {
+    if (GAME_CONFIG.godMode) {
+      return 1;
+    }
     const ownedMultiplier = Math.pow(GAME_CONFIG.costMultiplier, ownedCount);
     const levelMultiplier = Math.pow(1.25, level);
-    
     let cost = baseCost * ownedMultiplier * levelMultiplier;
     
     // Round to nice numbers
