@@ -1,5 +1,7 @@
-import React, { createContext, useContext, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect, useRef } from 'react';
 import { GAME_CONFIG } from '../utils/constants';
+import { AchievementSystem } from '../services/game/achievementSystem';
+import patentsData from '../data/patents.json';
 
 const GameContext = createContext();
 
@@ -13,6 +15,7 @@ const initialGameState = {
   act: 1,
   completedExperiments: [],
   unlockedExperiments: ['culture_growth'],
+  unlockedAchievements: [],
   patents: {},
   samples: {
     aspergillus_niger: 0,
@@ -24,6 +27,7 @@ const initialGameState = {
     questionsAnswered: 0,
     questionsCorrect: 0,
     playtime: 0,
+    perfectExperiments: 0
   },
   equipment: {
     petri_dish: { owned: true, level: 1 },
@@ -36,6 +40,7 @@ const initialGameState = {
   currentExperiment: null,
   lastSave: Date.now(),
   startTime: Date.now(),
+  notifications: []
 };
 
 function gameReducer(state, action) {
@@ -68,6 +73,11 @@ function gameReducer(state, action) {
         completedExperiments: [...state.completedExperiments, action.payload],
         stats: { ...state.stats, totalExperiments: state.stats.totalExperiments + 1 }
       };
+    case 'PERFECT_EXPERIMENT':
+      return {
+        ...state,
+        stats: { ...state.stats, perfectExperiments: state.stats.perfectExperiments + 1 }
+      };
     case 'UNLOCK_EXPERIMENT':
       if (state.unlockedExperiments.includes(action.payload)) return state;
       return {
@@ -95,6 +105,53 @@ function gameReducer(state, action) {
       return { ...state, currentExperiment: action.payload };
     case 'END_EXPERIMENT':
       return { ...state, currentExperiment: null };
+    case 'UNLOCK_ACHIEVEMENTS':
+      return {
+        ...state,
+        unlockedAchievements: [...new Set([...(state.unlockedAchievements || []), ...action.payload.ids])],
+        knowledge: state.knowledge + (action.payload.rewards?.knowledge || 0),
+        funding: state.funding + (action.payload.rewards?.funding || 0),
+        reputation: Math.min(100, state.reputation + (action.payload.rewards?.reputation || 0))
+      };
+    case 'FILE_PATENT':
+      return {
+        ...state,
+        funding: Math.max(0, state.funding - action.payload.cost),
+        patents: {
+          ...state.patents,
+          [action.payload.id]: {
+            status: 'pending',
+            filedAt: action.payload.filedAt,
+            readyAt: action.payload.readyAt
+          }
+        }
+      };
+    case 'ACTIVATE_PATENT':
+      return {
+        ...state,
+        patents: {
+          ...state.patents,
+          [action.payload.id]: {
+            ...(state.patents[action.payload.id] || {}),
+            status: 'active',
+            activatedAt: Date.now()
+          }
+        },
+        funding: state.funding + (action.payload.rewards?.funding || 0),
+        reputation: Math.min(100, state.reputation + (action.payload.rewards?.reputation || 0))
+      };
+    case 'PUSH_NOTIFICATION':
+      return {
+        ...state,
+        notifications: [...(state.notifications || []), action.payload]
+      };
+    case 'REMOVE_NOTIFICATION':
+      return {
+        ...state,
+        notifications: (state.notifications || []).filter(n => n.id !== action.payload)
+      };
+    case 'CLEAR_NOTIFICATIONS':
+      return { ...state, notifications: [] };
     case 'LOAD_STATE':
       return { ...state, ...action.payload };
     case 'RESET_GAME':
@@ -109,14 +166,6 @@ function gameReducer(state, action) {
         ...state,
         ethicsScore: Math.max(0, Math.min(100, state.ethicsScore + action.payload))
       };
-    case 'ADD_SAMPLE':
-      return {
-        ...state,
-        samples: {
-          ...state.samples,
-          [action.payload.type]: (state.samples[action.payload.type] || 0) + action.payload.amount
-        }
-      };
     default:
       return state;
   }
@@ -124,6 +173,8 @@ function gameReducer(state, action) {
 
 export function GameProvider({ children }) {
   const [gameState, dispatch] = useReducer(gameReducer, initialGameState);
+  const patentTimerRef = useRef(null);
+  const passiveTimerRef = useRef(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('biolab-v2-save');
@@ -143,6 +194,57 @@ export function GameProvider({ children }) {
     }, GAME_CONFIG.saveInterval);
     return () => clearInterval(interval);
   }, [gameState]);
+
+  useEffect(() => {
+    const system = new AchievementSystem(gameState);
+    const { unlocked, rewards } = system.checkAchievements();
+    if (unlocked.length > 0) {
+      dispatch({ type: 'UNLOCK_ACHIEVEMENTS', payload: { ids: unlocked, rewards } });
+      unlocked.forEach(id => {
+        const info = system.getAchievementInfo(id);
+        dispatch({ type: 'PUSH_NOTIFICATION', payload: { id: Date.now() + Math.random(), type: 'success', message: `Conquista desbloqueada: ${info?.name || id}` } });
+      });
+    }
+  }, [gameState.knowledge, gameState.reputation, gameState.ethicsScore, gameState.stats, gameState.completedExperiments, gameState.equipment]);
+
+  useEffect(() => {
+    if (passiveTimerRef.current) clearInterval(passiveTimerRef.current);
+    passiveTimerRef.current = setInterval(() => {
+      let passiveFunding = 0;
+      Object.keys(gameState.patents || {}).forEach(id => {
+        const status = gameState.patents[id]?.status;
+        if (status === 'active') {
+          const patent = patentsData.patents.find(p => p.id === id);
+          if (patent?.rewards?.passiveIncome) {
+            const levelFactor = Math.min(2, 1 + (gameState.level || 1) * 0.02);
+            passiveFunding += (patent.rewards.passiveIncome / 60) * levelFactor;
+          }
+        }
+      });
+      if (passiveFunding > 0) {
+        dispatch({ type: 'ADD_FUNDING', payload: passiveFunding });
+      }
+      dispatch({ type: 'ADD_EXPERIENCE', payload: 0 });
+    }, 1000);
+    return () => clearInterval(passiveTimerRef.current);
+  }, [gameState.patents]);
+
+  useEffect(() => {
+    if (patentTimerRef.current) clearInterval(patentTimerRef.current);
+    patentTimerRef.current = setInterval(() => {
+      const now = Date.now();
+      Object.keys(gameState.patents || {}).forEach(id => {
+        const entry = gameState.patents[id];
+        if (entry?.status === 'pending' && entry.readyAt <= now) {
+          const patent = patentsData.patents.find(p => p.id === id);
+          const rewards = patent?.rewards || {};
+          dispatch({ type: 'ACTIVATE_PATENT', payload: { id, rewards } });
+          dispatch({ type: 'PUSH_NOTIFICATION', payload: { id: Date.now() + Math.random(), type: 'success', message: `Patente ativada: ${patent?.name || id}` } });
+        }
+      });
+    }, 2000);
+    return () => clearInterval(patentTimerRef.current);
+  }, [gameState.patents]);
 
   return (
     <GameContext.Provider value={{ gameState, dispatch }}>

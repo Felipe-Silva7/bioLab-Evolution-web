@@ -23,14 +23,15 @@ export default function LeaderboardView() {
         </div>
       </div>
 
-      <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden">
-        <table className="w-full text-left">
+      <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-xl">
+        <div className="overflow-x-auto">
+          <table className="min-w-[520px] w-full text-left">
           <thead>
-            <tr className="bg-white/5 border-b border-white/10">
-              <th className="p-4 font-semibold text-gray-400">#</th>
-              <th className="p-4 font-semibold text-gray-400">Cientista</th>
-              <th className="p-4 font-semibold text-gray-400">Laboratório</th>
-              <th className="p-4 font-semibold text-gray-400 text-right">Pontuação</th>
+              <tr className="bg-white/5 border-b border-white/10">
+                <th className="p-3 md:p-4 font-semibold text-gray-400">#</th>
+                <th className="p-3 md:p-4 font-semibold text-gray-400">Cientista</th>
+                <th className="p-3 md:p-4 font-semibold text-gray-400">Laboratório</th>
+                <th className="p-3 md:p-4 font-semibold text-gray-400 text-right">Pontuação</th>
             </tr>
           </thead>
           <tbody>
@@ -41,18 +42,19 @@ export default function LeaderboardView() {
                   entry.name === "Você" ? "bg-cyan-500/10" : ""
                 }`}
               >
-                <td className="p-4 font-bold text-gray-500">#{entry.rank}</td>
-                <td className={`p-4 font-medium ${entry.name === "Você" ? "text-cyan-400" : "text-white"}`}>
+                <td className="p-3 md:p-4 font-bold text-gray-500">#{entry.rank}</td>
+                <td className={`p-3 md:p-4 font-medium ${entry.name === "Você" ? "text-cyan-400" : "text-white"}`}>
                   {entry.name}
                 </td>
-                <td className="p-4 text-gray-400">{entry.lab}</td>
-                <td className="p-4 text-right font-mono text-green-400">
+                <td className="p-3 md:p-4 text-gray-400">{entry.lab}</td>
+                <td className="p-3 md:p-4 text-right font-mono text-green-400">
                   {entry.score.toLocaleString()}
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
   );

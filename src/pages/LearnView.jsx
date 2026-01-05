@@ -5,6 +5,42 @@ import { EXPERIMENTS } from '../utils/constants';
 
 export default function LearnView() {
   const { gameState } = useGame();
+  
+  const LEARNING_SUMMARY = {
+    culture_growth: [
+      'Células precisam de nutrientes específicos (glicose, aminoácidos, minerais) para crescer.',
+      'Contaminação compete pelos recursos e reduz a viabilidade do cultivo.',
+      'Balanceamento de nutrientes e movimentos estratégicos aumentam a eficiência do crescimento.'
+    ],
+    pcr_amplification: [
+      'A PCR possui três etapas térmicas: 95°C (desnaturação), 55°C (anelamento), 72°C (extensão).',
+      'Primers definem a região alvo; Taq polimerase sintetiza novas fitas de DNA.',
+      'Precisão nos ciclos aumenta a quantidade de DNA de forma exponencial.'
+    ],
+    dna_sequencing: [
+      'Pareamento de bases: A–T e C–G define a complementaridade das fitas.',
+      'Sequenciar é reconstruir a fita complementar ao molde com precisão.',
+      'Conceitos básicos de genética dependem da correta leitura das bases.'
+    ],
+    fermentation: [
+      'Manter temperatura, pH, oxigênio e agitação na zona ideal evita colapsos.',
+      'Homeostase do bioprocesso é essencial para produtividade e rendimento.',
+      'Ajustes finos e constantes estabilizam o sistema em escala industrial.'
+    ],
+    crispr_editing: [
+      'Cas9 reconhece a sequência PAM (NGG) para realizar o corte específico.',
+      'O gRNA guia a enzima até o alvo correto no genoma.',
+      'Precisão e ética são fundamentais na edição genética.'
+    ]
+  };
+  
+  const MANUAL_ANCHORS = {
+    culture_growth: '#cultivo',
+    pcr_amplification: '#pcr',
+    dna_sequencing: '#sequenciamento',
+    fermentation: '#fermentacao',
+    crispr_editing: '#crispr'
+  };
 
   return (
     <div className="space-y-6">
@@ -36,9 +72,30 @@ export default function LearnView() {
                   <div className="text-xs uppercase tracking-wide text-blue-400 font-bold mb-2">
                     📚 O que você aprendeu
                   </div>
-                  <p className="text-sm text-gray-300">
-                    Experimento concluído com sucesso! Continue explorando para desbloquear mais conteúdo educacional.
-                  </p>
+                  {LEARNING_SUMMARY[expId] ? (
+                    <ul className="text-sm text-gray-300 space-y-2">
+                      {LEARNING_SUMMARY[expId].map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <span className="text-blue-400">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm text-gray-300">
+                      Conteúdo educacional em breve para este experimento.
+                    </p>
+                  )}
+                  <div className="mt-3">
+                    <a
+                      href={`/manual.html${MANUAL_ANCHORS[expId] || ''}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-block text-blue-400 hover:text-blue-300 text-sm font-semibold"
+                    >
+                      Saiba mais →
+                    </a>
+                  </div>
                 </div>
               </div>
             );

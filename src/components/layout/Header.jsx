@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { User, LogOut } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useGame } from '../../contexts/GameContext';
@@ -7,6 +7,7 @@ import { formatNumber } from '../../utils/formatters';
 export default function Header() {
   const { gameState } = useGame();
   const { user, signOut } = useAuth();
+  const [logoOk, setLogoOk] = useState(true);
 
   const handleLogout = async () => {
     await signOut();
@@ -17,8 +18,19 @@ export default function Header() {
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-lg flex items-center justify-center">
-              <div className="text-2xl">🧬</div>
+            <div className="w-12 h-12 rounded-lg overflow-hidden border border-cyan-500/30 bg-black/20 flex items-center justify-center">
+              {logoOk ? (
+                <img
+                  src="/assets/images/logo.png"
+                  alt="BioLab Evolution"
+                  className="w-full h-full object-cover"
+                  onError={() => setLogoOk(false)}
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
+                  <div className="text-2xl">🧬</div>
+                </div>
+              )}
             </div>
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrendingUp } from 'lucide-react';
 import { useGame } from '../../contexts/GameContext';
+import { Calculations } from '../../utils/calculations';
 import { EQUIPMENT_SHOP } from '../../utils/constants';
 
 export default function ShopGrid() {
@@ -8,8 +9,10 @@ export default function ShopGrid() {
 
   const buyEquipment = (equipId) => {
     const equipment = EQUIPMENT_SHOP[equipId];
-    if (gameState.funding >= equipment.cost) {
-      dispatch({ type: 'SPEND_FUNDING', payload: equipment.cost });
+    const ownedCount = Object.values(gameState.equipment).filter(eq => eq.owned).length;
+    const adjustedCost = Calculations.calculateEquipmentCost(equipment.cost, ownedCount, gameState.level);
+    if (gameState.funding >= adjustedCost) {
+      dispatch({ type: 'SPEND_FUNDING', payload: adjustedCost });
       dispatch({ type: 'BUY_EQUIPMENT', payload: equipId });
     } else {
       alert('Financiamento insuficiente!');
@@ -31,7 +34,9 @@ export default function ShopGrid() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.entries(EQUIPMENT_SHOP).map(([id, eq]) => {
           const owned = gameState.equipment[id]?.owned;
-          const canBuy = gameState.funding >= eq.cost && !owned;
+          const ownedCount = Object.values(gameState.equipment).filter(e => e.owned).length;
+          const adjustedCost = Calculations.calculateEquipmentCost(eq.cost, ownedCount, gameState.level);
+          const canBuy = gameState.funding >= adjustedCost && !owned;
           
           return (
             <div
@@ -51,7 +56,7 @@ export default function ShopGrid() {
               
               <div className="flex items-center justify-between mb-4">
                 <span className="text-gray-400">Custo:</span>
-                <span className="text-2xl font-bold text-green-400">${eq.cost}</span>
+                <span className="text-2xl font-bold text-green-400">${adjustedCost}</span>
               </div>
               
               {owned ? (

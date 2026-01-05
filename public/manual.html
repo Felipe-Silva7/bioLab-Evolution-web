@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual do Usuário — BioLab Evolution</title>
+  <style>
+    body { background:#0b1020; color:#e5e7eb; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial; margin:0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 24px; }
+    .card { background:#0f172a; border:1px solid #334155; border-radius:16px; padding:24px; margin-bottom:16px; }
+    h1,h2,h3 { margin:0 0 12px 0; }
+    h1 { font-size:28px; color:#7dd3fc; }
+    h2 { font-size:22px; color:#a78bfa; }
+    h3 { font-size:18px; color:#93c5fd; }
+    p,li { font-size:15px; line-height:1.6; }
+    .list { margin:8px 0 0 0; padding-left:18px; }
+    .anchor { scroll-margin-top: 100px; }
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; background:#0b3a44; color:#67e8f9; font-size:12px; border:1px solid #164e63; }
+    .muted { color:#94a3b8; font-size:14px; }
+    a { color:#60a5fa; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .header { position:sticky; top:0; background:rgba(2,6,23,0.8); backdrop-filter: blur(8px); border-bottom:1px solid #334155; padding:12px 0; z-index:10; }
+    .row { display:flex; gap:8px; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container row" style="align-items:center; justify-content:space-between;">
+      <div class="row" style="align-items:center;">
+        <div class="pill">BioLab Evolution</div>
+      </div>
+      <a href="/" class="muted">Voltar ao jogo</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h1>Manual do Usuário — BioLab Evolution</h1>
+      <p class="muted">Guia rápido de estudo e referência. Desenvolvido por FelipeDev.</p>
+    </div>
+
+    <div class="card">
+      <h2>Fluxo de Progresso</h2>
+      <p>Aprender → Minigame → Recompensas → Loja → Novos experimentos.</p>
+      <ul class="list">
+        <li>Finalize o quiz teórico para liberar o minigame.</li>
+        <li>Complete o minigame para ganhar conhecimento, financiamento e experiência.</li>
+        <li>Compre equipamentos para desbloquear fases mais avançadas.</li>
+      </ul>
+    </div>
+
+    <div id="cultivo" class="card anchor">
+      <h2>🧫 Cultivo em Placa de Petri</h2>
+      <h3>O que você aprende</h3>
+      <ul class="list">
+        <li>Células precisam de nutrientes específicos (glicose, aminoácidos, minerais) para crescer.</li>
+        <li>Contaminação compete pelos recursos e reduz a viabilidade do cultivo.</li>
+        <li>Balanceamento de nutrientes e movimentos estratégicos aumentam a eficiência do crescimento.</li>
+      </ul>
+      <h3>Como jogar</h3>
+      <ul class="list">
+        <li>Combine 3 peças iguais para alimentar as células.</li>
+        <li>Atinga a pontuação mínima antes da contaminação chegar a 100%.</li>
+        <li>Crie combos para pontuar mais rápido.</li>
+      </ul>
+    </div>
+
+    <div id="pcr" class="card anchor">
+      <h2>🧬 PCR — Amplificação de DNA</h2>
+      <h3>O que você aprende</h3>
+      <ul class="list">
+        <li>A PCR possui três etapas térmicas: 95°C (desnaturação), 55°C (anelamento), 72°C (extensão).</li>
+        <li>Primers definem a região alvo; Taq polimerase sintetiza novas fitas de DNA.</li>
+        <li>Precisão nos ciclos aumenta a quantidade de DNA de forma exponencial.</li>
+      </ul>
+      <h3>Como jogar</h3>
+      <ul class="list">
+        <li>Controle a temperatura do termociclador e pare exatamente nos pontos corretos.</li>
+        <li>Conclua ciclos precisos para amplificar o DNA.</li>
+      </ul>
+    </div>
+
+    <div id="sequenciamento" class="card anchor">
+      <h2>🔬 Sequenciamento de DNA</h2>
+      <h3>O que você aprende</h3>
+      <ul class="list">
+        <li>Pareamento de bases: A–T e C–G define a complementaridade das fitas.</li>
+        <li>Sequenciar é reconstruir a fita complementar ao molde com precisão.</li>
+        <li>Conceitos básicos de genética dependem da correta leitura das bases.</li>
+      </ul>
+      <h3>Como jogar</h3>
+      <ul class="list">
+        <li>Monte a fita complementar ao molde usando o pareamento correto.</li>
+        <li>Evite erros antes do tempo acabar.</li>
+      </ul>
+    </div>
+
+    <div id="fermentacao" class="card anchor">
+      <h2>⚗️ Fermentação Industrial</h2>
+      <h3>O que você aprende</h3>
+      <ul class="list">
+        <li>Manter temperatura, pH, oxigênio e agitação na zona ideal evita colapsos.</li>
+        <li>Homeostase do bioprocesso é essencial para produtividade e rendimento.</li>
+        <li>Ajustes finos e constantes estabilizam o sistema em escala industrial.</li>
+      </ul>
+      <h3>Como jogar</h3>
+      <ul class="list">
+        <li>Mantenha as variáveis na zona verde ajustando quando saem do ideal.</li>
+        <li>Evite oscilações bruscas para manter estabilidade.</li>
+      </ul>
+    </div>
+
+    <div id="crispr" class="card anchor">
+      <h2>✂️ Edição Genética CRISPR</h2>
+      <h3>O que você aprende</h3>
+      <ul class="list">
+        <li>Cas9 reconhece a sequência PAM (NGG) para realizar o corte específico.</li>
+        <li>O gRNA guia a enzima até o alvo correto no genoma.</li>
+        <li>Precisão e ética são fundamentais na edição genética.</li>
+      </ul>
+      <h3>Como jogar</h3>
+      <ul class="list">
+        <li>Encontre a sequência PAM e posicione a Cas9 exatamente no alvo.</li>
+        <li>Realize o corte guiado com precisão.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

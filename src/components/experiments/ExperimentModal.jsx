@@ -17,6 +17,9 @@ export default function ExperimentModal({ experimentId, onClose }) {
       dispatch({ type: 'ADD_FUNDING', payload: experiment.rewards.funding });
       dispatch({ type: 'ADD_EXPERIENCE', payload: experiment.rewards.experience });
       dispatch({ type: 'COMPLETE_EXPERIMENT', payload: experimentId });
+      if (score >= 100) {
+        dispatch({ type: 'PERFECT_EXPERIMENT' });
+      }
       
       experiment.unlocks.forEach(unlockId => {
         dispatch({ type: 'UNLOCK_EXPERIMENT', payload: unlockId });

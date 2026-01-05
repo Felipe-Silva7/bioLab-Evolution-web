@@ -5,11 +5,13 @@ import { EXPERIMENTS } from '../utils/constants';
 import ExperimentCard from '../components/experiments/ExperimentCard';
 import ExperimentModal from '../components/experiments/ExperimentModal';
 import QuizModal from '../components/quiz/QuizModal';
+import ExperimentGuideModal from '../components/experiments/ExperimentGuideModal';
 
 export default function ExperimentsView() {
   const { gameState } = useGame();
   const [showQuiz, setShowQuiz] = useState(null);
   const [activeExperiment, setActiveExperiment] = useState(null);
+  const [guideExperiment, setGuideExperiment] = useState(null);
 
   const startExperiment = (expId) => {
     const exp = EXPERIMENTS[expId];
@@ -60,9 +62,20 @@ export default function ExperimentsView() {
           onComplete={(passed) => {
             setShowQuiz(null);
             if (passed) {
-              setActiveExperiment(showQuiz.experimentId);
+              setGuideExperiment(showQuiz.experimentId);
             }
           }}
+        />
+      )}
+
+      {guideExperiment && (
+        <ExperimentGuideModal
+          experimentId={guideExperiment}
+          onStart={() => {
+            setActiveExperiment(guideExperiment);
+            setGuideExperiment(null);
+          }}
+          onClose={() => setGuideExperiment(null)}
         />
       )}
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import { useGame } from './contexts/GameContext';
@@ -66,17 +66,7 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   const { user } = useAuth();
-  const { gameState } = useGame();
-  const [notifications, setNotifications] = useState([]);
-
-  const showNotification = (message, type = 'info') => {
-    const id = Date.now();
-    setNotifications(prev => [...prev, { id, message, type }]);
-  };
-
-  const removeNotification = (id) => {
-    setNotifications(prev => prev.filter(n => n.id !== id));
-  };
+  const { gameState, dispatch } = useGame();
 
   return (
     <>
@@ -170,13 +160,13 @@ function App() {
 
       {/* Notifications */}
       <div className="fixed top-4 right-4 z-50 space-y-2">
-        {notifications.map(notification => (
+        {(gameState.notifications || []).map(notification => (
           <Notification
             key={notification.id}
             id={notification.id}
             message={notification.message}
             type={notification.type}
-            onClose={removeNotification}
+            onClose={(nid) => dispatch({ type: 'REMOVE_NOTIFICATION', payload: nid })}
           />
         ))}
       </div>

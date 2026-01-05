@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="mt-12 border-t border-gray-800 py-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-gray-400 text-sm">
+          <div className="text-gray-400 text-center">
             <p>🧬 BIO-LAB EVOLUTION v2.0</p>
             <p className="mt-1">Jogo educacional de biotecnologia</p>
           </div>
