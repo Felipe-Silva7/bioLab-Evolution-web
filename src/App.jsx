@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import { useGame } from './contexts/GameContext';
@@ -67,6 +67,9 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   const { user } = useAuth();
   const { gameState, dispatch } = useGame();
+  const handleNotificationClose = useCallback((nid) => {
+    dispatch({ type: 'REMOVE_NOTIFICATION', payload: nid });
+  }, [dispatch]);
 
   return (
     <>
@@ -158,17 +161,19 @@ function App() {
         } />
       </Routes>
 
-      {/* Notifications */}
-      <div className="fixed top-4 right-4 z-50 space-y-2">
-        {(gameState.notifications || []).map(notification => (
+      {/* Notifications (fila única) */}
+      <div className="fixed top-4 right-4 z-50">
+        {Boolean((gameState.notifications || []).length) && (
           <Notification
-            key={notification.id}
-            id={notification.id}
-            message={notification.message}
-            type={notification.type}
-            onClose={(nid) => dispatch({ type: 'REMOVE_NOTIFICATION', payload: nid })}
+            id={gameState.notifications[0].id}
+            message={gameState.notifications[0].message}
+            type={gameState.notifications[0].type}
+            duration={4000}
+            position={1}
+            total={(gameState.notifications || []).length}
+            onClose={handleNotificationClose}
           />
-        ))}
+        )}
       </div>
     </>
   );

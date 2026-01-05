@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { CheckCircle, XCircle, Info, AlertCircle } from 'lucide-react';
 
-const Notification = ({ id, message, type = 'info', duration = 5000, onClose }) => {
+const Notification = ({ id, message, type = 'info', duration = 5000, position = 1, total = 1, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose(id);
@@ -25,12 +25,19 @@ const Notification = ({ id, message, type = 'info', duration = 5000, onClose }) 
       <div className="flex items-center gap-3">
         <Icon className={`w-5 h-5 ${config.color}`} />
         <span className="font-medium">{message}</span>
-        <button 
-          onClick={() => onClose(id)}
-          className="ml-auto text-gray-400 hover:text-white"
-        >
-          ✕
-        </button>
+        <div className="ml-auto flex items-center gap-2">
+          {total > 1 && (
+            <span className="px-2 py-0.5 rounded-full text-xs bg-white/10 border border-white/20 text-gray-300">
+              {position}/{total}
+            </span>
+          )}
+          <button 
+            onClick={() => onClose(id)}
+            className="text-gray-400 hover:text-white"
+          >
+            ✕
+          </button>
+        </div>
       </div>
     </div>
   );

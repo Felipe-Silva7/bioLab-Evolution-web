@@ -40,7 +40,8 @@ const initialGameState = {
   currentExperiment: null,
   lastSave: Date.now(),
   startTime: Date.now(),
-  notifications: []
+  notifications: [],
+  notificationHistory: []
 };
 
 function gameReducer(state, action) {
@@ -141,10 +142,21 @@ function gameReducer(state, action) {
         reputation: Math.min(100, state.reputation + (action.payload.rewards?.reputation || 0))
       };
     case 'PUSH_NOTIFICATION':
-      return {
-        ...state,
-        notifications: [...(state.notifications || []), action.payload]
-      };
+      {
+        const msg = (action.payload?.message || '').trim();
+        if (msg && (state.notificationHistory || []).includes(msg)) {
+          return state;
+        }
+        const existsInQueue = (state.notifications || []).some(n => (n.message || '').trim() === msg && n.type === action.payload.type);
+        if (existsInQueue) {
+          return state;
+        }
+        return {
+          ...state,
+          notifications: [...(state.notifications || []), action.payload],
+          notificationHistory: msg ? [...(state.notificationHistory || []), msg] : (state.notificationHistory || [])
+        };
+      }
     case 'REMOVE_NOTIFICATION':
       return {
         ...state,
