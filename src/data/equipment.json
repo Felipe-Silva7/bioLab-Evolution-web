@@ -1,0 +1,237 @@
+{
+  "equipment": [
+    {
+      "id": "petri_dish",
+      "name": "Placa de Petri",
+      "icon": "🧫",
+      "description": "Equipamento básico para cultivo de micro-organismos",
+      "cost": 0,
+      "requiredLevel": 1,
+      "type": "basic",
+      "bonuses": {
+        "knowledgeBonus": 0.05,
+        "successBonus": 0.1
+      },
+      "requirements": {
+        "slot": "basic"
+      },
+      "unlocks": ["culture_growth"]
+    },
+    {
+      "id": "microscope",
+      "name": "Microscópio Óptico",
+      "icon": "🔬",
+      "description": "Amplia a visão para observação celular detalhada",
+      "cost": 300,
+      "requiredLevel": 2,
+      "type": "observation",
+      "bonuses": {
+        "knowledgeBonus": 0.15,
+        "passiveKnowledge": 0.2
+      },
+      "requirements": {
+        "slot": "advanced",
+        "knowledge": 100
+      },
+      "unlocks": ["dna_sequencing"]
+    },
+    {
+      "id": "incubator",
+      "name": "Incubadora",
+      "icon": "🌡️",
+      "description": "Controle preciso de temperatura para cultivos",
+      "cost": 500,
+      "requiredLevel": 3,
+      "type": "environment",
+      "bonuses": {
+        "successBonus": 0.2,
+        "timeReduction": 0.1
+      },
+      "requirements": {
+        "slot": "advanced",
+        "knowledge": 200
+      },
+      "unlocks": []
+    },
+    {
+      "id": "thermocycler",
+      "name": "Termociclador PCR",
+      "icon": "🧬",
+      "description": "Equipamento essencial para reações de PCR",
+      "cost": 1000,
+      "requiredLevel": 5,
+      "type": "molecular",
+      "bonuses": {
+        "knowledgeBonus": 0.25,
+        "successBonus": 0.15,
+        "experienceBonus": 0.1
+      },
+      "requirements": {
+        "slot": "molecular",
+        "knowledge": 500,
+        "equipment": ["microscope"]
+      },
+      "unlocks": ["pcr_amplification"]
+    },
+    {
+      "id": "bioreactor",
+      "name": "Biorreator",
+      "icon": "⚗️",
+      "description": "Fermentação em larga escala com controle automatizado",
+      "cost": 2500,
+      "requiredLevel": 8,
+      "type": "industrial",
+      "bonuses": {
+        "fundingBonus": 0.3,
+        "passiveFunding": 0.5,
+        "successBonus": 0.25
+      },
+      "requirements": {
+        "slot": "industrial",
+        "knowledge": 1000,
+        "equipment": ["incubator"]
+      },
+      "unlocks": ["fermentation"]
+    },
+    {
+      "id": "sequencer",
+      "name": "Sequenciador NGS",
+      "icon": "💻",
+      "description": "Sequenciamento de nova geração para análise genômica",
+      "cost": 5000,
+      "requiredLevel": 12,
+      "type": "analysis",
+      "bonuses": {
+        "knowledgeBonus": 0.4,
+        "experienceBonus": 0.2,
+        "timeReduction": 0.15,
+        "gameSpeed": 0.1
+      },
+      "requirements": {
+        "slot": "analysis",
+        "knowledge": 2000,
+        "equipment": ["thermocycler", "microscope"]
+      },
+      "unlocks": ["crispr_editing"]
+    },
+    {
+      "id": "centrifuge",
+      "name": "Centrífuga",
+      "icon": "🌀",
+      "description": "Separa componentes por densidade usando força centrífuga",
+      "cost": 800,
+      "requiredLevel": 4,
+      "type": "separation",
+      "bonuses": {
+        "successBonus": 0.15,
+        "timeReduction": 0.05
+      },
+      "requirements": {
+        "slot": "advanced",
+        "knowledge": 300
+      },
+      "unlocks": []
+    },
+    {
+      "id": "spectrometer",
+      "name": "Espectrômetro",
+      "icon": "📊",
+      "description": "Análise quantitativa de compostos por espectrometria",
+      "cost": 1500,
+      "requiredLevel": 7,
+      "type": "analysis",
+      "bonuses": {
+        "knowledgeBonus": 0.2,
+        "fundingBonus": 0.1,
+        "accuracyBonus": 0.15
+      },
+      "requirements": {
+        "slot": "analysis",
+        "knowledge": 800
+      },
+      "unlocks": []
+    },
+    {
+      "id": "freezer",
+      "name": "Freezer -80°C",
+      "icon": "❄️",
+      "description": "Armazenamento criogênico para amostras biológicas",
+      "cost": 1200,
+      "requiredLevel": 6,
+      "type": "storage",
+      "bonuses": {
+        "samplePreservation": 0.5,
+        "passiveKnowledge": 0.1
+      },
+      "requirements": {
+        "slot": "utility",
+        "knowledge": 400
+      },
+      "unlocks": []
+    },
+    {
+      "id": "hood",
+      "name": "Cabine de Segurança Biológica",
+      "icon": "🛡️",
+      "description": "Proteção contra contaminação cruzada",
+      "cost": 2000,
+      "requiredLevel": 9,
+      "type": "safety",
+      "bonuses": {
+        "successBonus": 0.3,
+        "contaminationReduction": 0.4,
+        "reputationBonus": 0.1
+      },
+      "requirements": {
+        "slot": "safety",
+        "knowledge": 1500,
+        "reputation": 40
+      },
+      "unlocks": []
+    }
+  ],
+  
+  "equipmentSlots": {
+    "basic": {
+      "name": "Básico",
+      "max": 2,
+      "description": "Equipamentos fundamentais do laboratório"
+    },
+    "advanced": {
+      "name": "Avançado",
+      "max": 3,
+      "description": "Equipamentos especializados"
+    },
+    "molecular": {
+      "name": "Molecular",
+      "max": 2,
+      "description": "Equipamentos para biologia molecular"
+    },
+    "industrial": {
+      "name": "Industrial",
+      "max": 1,
+      "description": "Equipamentos de larga escala"
+    },
+    "analysis": {
+      "name": "Análise",
+      "max": 2,
+      "description": "Equipamentos analíticos"
+    },
+    "utility": {
+      "name": "Utilitários",
+      "max": 2,
+      "description": "Equipamentos de suporte"
+    },
+    "safety": {
+      "name": "Segurança",
+      "max": 1,
+      "description": "Equipamentos de proteção"
+    }
+  },
+  
+  "upgradeCosts": {
+    "base": 100,
+    "multiplier": 1.5,
+    "maxLevel": 10
+  }
+}

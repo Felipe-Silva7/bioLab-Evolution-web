@@ -99,6 +99,24 @@ function gameReducer(state, action) {
       return { ...state, ...action.payload };
     case 'RESET_GAME':
       return initialGameState;
+    case 'UPDATE_REPUTATION':
+      return {
+        ...state,
+        reputation: Math.max(0, Math.min(100, state.reputation + action.payload))
+      };
+    case 'UPDATE_ETHICS':
+      return {
+        ...state,
+        ethicsScore: Math.max(0, Math.min(100, state.ethicsScore + action.payload))
+      };
+    case 'ADD_SAMPLE':
+      return {
+        ...state,
+        samples: {
+          ...state.samples,
+          [action.payload.type]: (state.samples[action.payload.type] || 0) + action.payload.amount
+        }
+      };
     default:
       return state;
   }

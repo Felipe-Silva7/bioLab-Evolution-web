@@ -1,0 +1,97 @@
+{
+  "culture_growth": [
+    {
+      "id": "q_culture_1",
+      "question": "Qual nutriente fornece energia primária para as células?",
+      "options": ["Glicose", "Oxigênio", "Água", "DNA"],
+      "correct": 0,
+      "explanation": "Glicose é quebrada na glicólise e ciclo de Krebs, gerando ATP (energia celular). É a fonte de carbono mais importante.",
+      "points": 10
+    },
+    {
+      "id": "q_culture_2",
+      "question": "Por que algumas bactérias crescem melhor em temperatura elevada?",
+      "options": [
+        "Suas enzimas são termofílicas",
+        "Elas não precisam de oxigênio",
+        "Produzem mais ATP",
+        "Multiplicam-se mais rápido"
+      ],
+      "correct": 0,
+      "explanation": "Bactérias termofílicas possuem proteínas e enzimas estáveis em altas temperaturas (50-80°C), encontradas em fontes termais.",
+      "points": 15
+    },
+    {
+      "id": "q_culture_3",
+      "question": "O que é meio de cultura seletivo?",
+      "options": [
+        "Permite crescimento apenas de certos micro-organismos",
+        "Tem mais nutrientes",
+        "É líquido ao invés de sólido",
+        "Não contém ágar"
+      ],
+      "correct": 0,
+      "explanation": "Meios seletivos contêm substâncias que inibem crescimento de algumas espécies, permitindo isolar bactérias específicas.",
+      "points": 20
+    }
+  ],
+  "pcr_amplification": [
+    {
+      "id": "q_pcr_1",
+      "question": "Qual é a temperatura de desnaturação na PCR?",
+      "options": ["55°C", "72°C", "95°C", "37°C"],
+      "correct": 2,
+      "explanation": "A 95°C, as ligações de hidrogênio entre as fitas de DNA se rompem, separando a dupla hélice em fitas simples.",
+      "points": 15
+    },
+    {
+      "id": "q_pcr_2",
+      "question": "O que são primers na PCR?",
+      "options": [
+        "Enzimas que cortam DNA",
+        "Pequenas sequências de DNA que marcam o alvo",
+        "Proteínas estabilizadoras",
+        "Fontes de energia"
+      ],
+      "correct": 1,
+      "explanation": "Primers são oligonucleotídeos (15-30 bases) que se anelam ao DNA alvo, sinalizando onde a DNA polimerase deve iniciar.",
+      "points": 20
+    },
+    {
+      "id": "q_pcr_3",
+      "question": "Quantas cópias de DNA após 30 ciclos de PCR?",
+      "options": ["30 cópias", "900 cópias", "1 milhão", "Mais de 1 bilhão"],
+      "correct": 3,
+      "explanation": "PCR tem amplificação exponencial: 2^30 = 1.073.741.824 cópias! Por isso é tão sensível para diagnóstico.",
+      "points": 25
+    }
+  ],
+  "fermentation": [
+    {
+      "id": "q_ferm_1",
+      "question": "Por que é importante controlar o pH durante fermentação?",
+      "options": [
+        "Afeta atividade enzimática dos micro-organismos",
+        "Deixa o produto mais doce",
+        "Economiza energia",
+        "Não é importante"
+      ],
+      "correct": 0,
+      "explanation": "Enzimas têm pH ótimo. Variações extremas desnатuram proteínas, matando células ou reduzindo produtividade drasticamente.",
+      "points": 15
+    },
+    {
+      "id": "q_ferm_2",
+      "question": "Qual micro-organismo produz penicilina industrialmente?",
+      "options": [
+        "Escherichia coli",
+        "Penicillium chrysogenum",
+        "Saccharomyces cerevisiae",
+        "Bacillus subtilis"
+      ],
+      "correct": 1,
+      "explanation": "Penicillium chrysogenum foi geneticamente melhorado desde Fleming (1928) e hoje produz 1000x mais penicilina que cepas naturais.",
+      "points": 20
+    }
+  ]
+}

@@ -1,25 +1,95 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "BIO-LAB EVOLUTION",
+  "short_name": "BioLab",
+  "description": "Jogo educacional de biotecnologia e simulação laboratorial",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/assets/images/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/assets/images/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/assets/images/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "categories": ["education", "games", "simulation"],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshots/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Laboratório Principal"
+    },
+    {
+      "src": "/assets/images/screenshots/screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Experimento de PCR"
+    },
+    {
+      "src": "/assets/images/screenshots/screenshot3.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Quiz Educacional"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Novo Experimento",
+      "short_name": "Experimento",
+      "description": "Iniciar um novo experimento",
+      "url": "/?source=pwa&action=new-experiment"
+    },
+    {
+      "name": "Ver Progresso",
+      "short_name": "Progresso",
+      "description": "Ver estatísticas e conquistas",
+      "url": "/?source=pwa&action=progress"
+    },
+    {
+      "name": "Loja de Equipamentos",
+      "short_name": "Loja",
+      "description": "Comprar novos equipamentos",
+      "url": "/?source=pwa&action=shop"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
 }

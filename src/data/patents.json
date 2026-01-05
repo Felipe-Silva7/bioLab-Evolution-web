@@ -1,0 +1,288 @@
+{
+  "patents": [
+    {
+      "id": "basic_culture",
+      "name": "Cultivo Contínuo Otimizado",
+      "description": "Método para cultivo contínuo de micro-organismos com aumento de 30% no rendimento",
+      "icon": "🧫",
+      "requirements": {
+        "knowledge": 500,
+        "experiments": ["culture_growth"],
+        "equipment": ["incubator"]
+      },
+      "cost": 1000,
+      "duration": 86400,
+      "rewards": {
+        "funding": 5000,
+        "reputation": 20,
+        "passiveIncome": 10
+      },
+      "effects": {
+        "cultureYield": 0.3,
+        "cultureSpeed": 0.15
+      },
+      "tier": "basic"
+    },
+    {
+      "id": "pcr_optimized",
+      "name": "PCR de Alta Fidelidade",
+      "description": "Protocolo de PCR com 99,9% de precisão e redução de 40% no tempo",
+      "icon": "🧬",
+      "requirements": {
+        "knowledge": 1500,
+        "experiments": ["pcr_amplification"],
+        "equipment": ["thermocycler", "microscope"]
+      },
+      "cost": 5000,
+      "duration": 259200,
+      "rewards": {
+        "funding": 25000,
+        "reputation": 40,
+        "passiveIncome": 25
+      },
+      "effects": {
+        "pcrAccuracy": 0.999,
+        "pcrSpeed": 0.4,
+        "knowledgeGain": 0.2
+      },
+      "tier": "advanced"
+    },
+    {
+      "id": "dna_synthesis",
+      "name": "Síntese de DNA Artificial",
+      "description": "Tecnologia para síntese de sequências de DNA personalizadas",
+      "icon": "🔬",
+      "requirements": {
+        "knowledge": 3000,
+        "experiments": ["dna_sequencing", "pcr_amplification"],
+        "equipment": ["sequencer", "thermocycler"]
+      },
+      "cost": 15000,
+      "duration": 604800,
+      "rewards": {
+        "funding": 100000,
+        "reputation": 60,
+        "passiveIncome": 50
+      },
+      "effects": {
+        "dnaCost": -0.5,
+        "researchSpeed": 0.3,
+        "unlockChance": 0.25
+      },
+      "tier": "expert"
+    },
+    {
+      "id": "industrial_fermentation",
+      "name": "Fermentação Industrial Otimizada",
+      "description": "Processo de fermentação em larga escala com 70% de aumento na produção",
+      "icon": "⚗️",
+      "requirements": {
+        "knowledge": 5000,
+        "experiments": ["fermentation"],
+        "equipment": ["bioreactor", "incubator"]
+      },
+      "cost": 30000,
+      "duration": 1209600,
+      "rewards": {
+        "funding": 250000,
+        "reputation": 80,
+        "passiveIncome": 100
+      },
+      "effects": {
+        "fermentationYield": 0.7,
+        "productionCost": -0.4,
+        "energyEfficiency": 0.35
+      },
+      "tier": "industrial"
+    },
+    {
+      "id": "crispr_therapy",
+      "name": "Terapia Gênica CRISPR",
+      "description": "Método revolucionário para edição genética em terapias humanas",
+      "icon": "✂️",
+      "requirements": {
+        "knowledge": 10000,
+        "experiments": ["crispr_editing"],
+        "equipment": ["sequencer", "thermocycler", "microscope"],
+        "reputation": 90,
+        "ethics": 85
+      },
+      "cost": 100000,
+      "duration": 2592000,
+      "rewards": {
+        "funding": 1000000,
+        "reputation": 100,
+        "passiveIncome": 250,
+        "nobelPrize": true
+      },
+      "effects": {
+        "editingAccuracy": 0.9999,
+        "offTargetRate": -0.9,
+        "treatmentEfficacy": 0.8
+      },
+      "tier": "nobel"
+    },
+    {
+      "id": "enzyme_engineering",
+      "name": "Engenharia de Enzimas",
+      "description": "Desenvolvimento de enzimas personalizadas para processos industriais",
+      "icon": "⚡",
+      "requirements": {
+        "knowledge": 2000,
+        "experiments": ["culture_growth", "fermentation"],
+        "equipment": ["incubator", "centrifuge"]
+      },
+      "cost": 8000,
+      "duration": 432000,
+      "rewards": {
+        "funding": 50000,
+        "reputation": 35,
+        "passiveIncome": 30
+      },
+      "effects": {
+        "enzymeActivity": 0.4,
+        "processEfficiency": 0.25,
+        "materialCost": -0.2
+      },
+      "tier": "advanced"
+    },
+    {
+      "id": "biosensor",
+      "name": "Biosensor de Alta Sensibilidade",
+      "description": "Sensor biológico para detecção rápida de patógenos",
+      "icon": "📡",
+      "requirements": {
+        "knowledge": 2500,
+        "experiments": ["dna_sequencing"],
+        "equipment": ["spectrometer", "microscope"],
+        "reputation": 50
+      },
+      "cost": 12000,
+      "duration": 518400,
+      "rewards": {
+        "funding": 75000,
+        "reputation": 45,
+        "passiveIncome": 40
+      },
+      "effects": {
+        "detectionSpeed": 0.6,
+        "sensitivity": 0.5,
+        "diagnosticAccuracy": 0.35
+      },
+      "tier": "expert"
+    },
+    {
+      "id": "biofuel",
+      "name": "Produção de Biocombustível",
+      "description": "Processo sustentável para produção de biocombustível a partir de resíduos",
+      "icon": "🌱",
+      "requirements": {
+        "knowledge": 4000,
+        "experiments": ["fermentation", "culture_growth"],
+        "equipment": ["bioreactor", "incubator"],
+        "ethics": 70
+      },
+      "cost": 20000,
+      "duration": 864000,
+      "rewards": {
+        "funding": 150000,
+        "reputation": 70,
+        "passiveIncome": 75,
+        "environmentalImpact": 0.3
+      },
+      "effects": {
+        "fuelYield": 0.5,
+        "productionCost": -0.35,
+        "carbonReduction": 0.4
+      },
+      "tier": "industrial"
+    },
+    {
+      "id": "personalized_medicine",
+      "name": "Medicina Personalizada",
+      "description": "Plataforma para desenvolvimento de tratamentos personalizados baseados no genoma",
+      "icon": "💊",
+      "requirements": {
+        "knowledge": 8000,
+        "experiments": ["dna_sequencing", "crispr_editing"],
+        "equipment": ["sequencer", "thermocycler"],
+        "reputation": 85,
+        "ethics": 80
+      },
+      "cost": 50000,
+      "duration": 1728000,
+      "rewards": {
+        "funding": 500000,
+        "reputation": 90,
+        "passiveIncome": 150
+      },
+      "effects": {
+        "treatmentSuccess": 0.45,
+        "sideEffects": -0.6,
+        "recoveryTime": -0.4
+      },
+      "tier": "expert"
+    },
+    {
+      "id": "synthetic_biology",
+      "name": "Organismo Sintético",
+      "description": "Criação do primeiro organismo completamente sintético com funções programáveis",
+      "icon": "🧬",
+      "requirements": {
+        "knowledge": 15000,
+        "experiments": ["crispr_editing", "dna_sequencing", "pcr_amplification"],
+        "equipment": ["sequencer", "thermocycler", "bioreactor", "hood"],
+        "reputation": 95,
+        "ethics": 90
+      },
+      "cost": 250000,
+      "duration": 5184000,
+      "rewards": {
+        "funding": 2500000,
+        "reputation": 100,
+        "passiveIncome": 500,
+        "scientificBreakthrough": true
+      },
+      "effects": {
+        "customOrganisms": true,
+        "productionVersatility": 0.8,
+        "researchSpeed": 0.6,
+        "unlockAll": true
+      },
+      "tier": "revolutionary"
+    }
+  ],
+  
+  "patentTiers": {
+    "basic": {
+      "color": "#10b981",
+      "minKnowledge": 500,
+      "duration": "1-3 dias"
+    },
+    "advanced": {
+      "color": "#3b82f6",
+      "minKnowledge": 1500,
+      "duration": "3-7 dias"
+    },
+    "expert": {
+      "color": "#8b5cf6",
+      "minKnowledge": 3000,
+      "duration": "1-2 semanas"
+    },
+    "industrial": {
+      "color": "#f59e0b",
+      "minKnowledge": 5000,
+      "duration": "2-4 semanas"
+    },
+    "nobel": {
+      "color": "#ef4444",
+      "minKnowledge": 10000,
+      "duration": "1 mês+"
+    },
+    "revolutionary": {
+      "color": "#ec4899",
+      "minKnowledge": 15000,
+      "duration": "2 meses+"
+    }
+  }
+}

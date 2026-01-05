@@ -1,0 +1,252 @@
+{
+  "achievements": [
+    {
+      "id": "first_steps",
+      "name": "Primeiros Passos",
+      "description": "Alcance 100 pontos de conhecimento",
+      "icon": "🧠",
+      "tier": "bronze",
+      "points": 10,
+      "requirements": {
+        "knowledge": 100
+      },
+      "reward": {
+        "knowledge": 50,
+        "funding": 100
+      }
+    },
+    {
+      "id": "knowledgeable",
+      "name": "Conhecedor",
+      "description": "Alcance 1.000 pontos de conhecimento",
+      "icon": "📚",
+      "tier": "silver",
+      "points": 25,
+      "requirements": {
+        "knowledge": 1000
+      },
+      "reward": {
+        "knowledge": 200,
+        "reputation": 10
+      }
+    },
+    {
+      "id": "expert",
+      "name": "Especialista",
+      "description": "Alcance 5.000 pontos de conhecimento",
+      "icon": "🎓",
+      "tier": "gold",
+      "points": 50,
+      "requirements": {
+        "knowledge": 5000
+      },
+      "reward": {
+        "knowledge": 500,
+        "funding": 1000,
+        "reputation": 20
+      }
+    },
+    {
+      "id": "genius",
+      "name": "Gênio",
+      "description": "Alcance 10.000 pontos de conhecimento",
+      "icon": "⚛️",
+      "tier": "platinum",
+      "points": 100,
+      "requirements": {
+        "knowledge": 10000
+      },
+      "reward": {
+        "knowledge": 1000,
+        "funding": 5000,
+        "reputation": 50
+      }
+    },
+    {
+      "id": "first_experiment",
+      "name": "Primeiro Experimento",
+      "description": "Complete seu primeiro experimento",
+      "icon": "🧪",
+      "tier": "bronze",
+      "points": 10,
+      "requirements": {
+        "experiments": 1
+      },
+      "reward": {
+        "knowledge": 100,
+        "funding": 200
+      }
+    },
+    {
+      "id": "lab_rat",
+      "name": "Rato de Laboratório",
+      "description": "Complete 10 experimentos",
+      "icon": "🐁",
+      "tier": "silver",
+      "points": 25,
+      "requirements": {
+        "experiments": 10
+      },
+      "reward": {
+        "knowledge": 300,
+        "funding": 500,
+        "reputation": 15
+      }
+    },
+    {
+      "id": "research_leader",
+      "name": "Líder de Pesquisa",
+      "description": "Complete 25 experimentos",
+      "icon": "👨‍🔬",
+      "tier": "gold",
+      "points": 50,
+      "requirements": {
+        "experiments": 25
+      },
+      "reward": {
+        "knowledge": 1000,
+        "funding": 2000,
+        "reputation": 30
+      }
+    },
+    {
+      "id": "equipment_collector",
+      "name": "Colecionador de Equipamentos",
+      "description": "Possua 5 equipamentos diferentes",
+      "icon": "⚙️",
+      "tier": "silver",
+      "points": 20,
+      "requirements": {
+        "equipment": 5
+      },
+      "reward": {
+        "knowledge": 400,
+        "funding": 1000
+      }
+    },
+    {
+      "id": "fully_equipped",
+      "name": "Totalmente Equipado",
+      "description": "Possua todos os equipamentos",
+      "icon": "🏭",
+      "tier": "platinum",
+      "points": 100,
+      "requirements": {
+        "equipment": 8
+      },
+      "reward": {
+        "knowledge": 2000,
+        "funding": 5000,
+        "reputation": 40
+      }
+    },
+    {
+      "id": "quick_learner",
+      "name": "Aprendiz Rápido",
+      "description": "Responda 10 perguntas corretamente",
+      "icon": "⚡",
+      "tier": "bronze",
+      "points": 15,
+      "requirements": {
+        "questions_correct": 10
+      },
+      "reward": {
+        "knowledge": 150,
+        "reputation": 5
+      }
+    },
+    {
+      "id": "quiz_master",
+      "name": "Mestre do Quiz",
+      "description": "Mantenha 90% de taxa de acerto em 50 perguntas",
+      "icon": "🏆",
+      "tier": "gold",
+      "points": 50,
+      "requirements": {
+        "questions_total": 50,
+        "accuracy": 90
+      },
+      "reward": {
+        "knowledge": 800,
+        "funding": 1500,
+        "reputation": 25
+      }
+    },
+    {
+      "id": "perfect_experiment",
+      "name": "Perfeição Científica",
+      "description": "Complete um experimento com 100% de precisão",
+      "icon": "⭐",
+      "tier": "gold",
+      "points": 40,
+      "requirements": {
+        "perfect_score": 1
+      },
+      "reward": {
+        "knowledge": 500,
+        "reputation": 20
+      }
+    },
+    {
+      "id": "ethical_scientist",
+      "name": "Cientista Ético",
+      "description": "Mantenha score ético acima de 90%",
+      "icon": "⚖️",
+      "tier": "silver",
+      "points": 30,
+      "requirements": {
+        "ethics_score": 90
+      },
+      "reward": {
+        "reputation": 30,
+        "funding": 1000
+      }
+    },
+    {
+      "id": "renowned_researcher",
+      "name": "Pesquisador Renomado",
+      "description": "Alcance 100% de reputação",
+      "icon": "🌟",
+      "tier": "platinum",
+      "points": 100,
+      "requirements": {
+        "reputation": 100
+      },
+      "reward": {
+        "knowledge": 1500,
+        "funding": 3000
+      }
+    },
+    {
+      "id": "dedicated_scientist",
+      "name": "Cientista Dedicado",
+      "description": "Jogue por mais de 1 hora",
+      "icon": "⏱️",
+      "tier": "bronze",
+      "points": 20,
+      "requirements": {
+        "playtime_seconds": 3600
+      },
+      "reward": {
+        "knowledge": 300,
+        "funding": 500
+      }
+    },
+    {
+      "id": "lab_marathon",
+      "name": "Maratona no Laboratório",
+      "description": "Jogue por mais de 10 horas",
+      "icon": "🏃",
+      "tier": "gold",
+      "points": 60,
+      "requirements": {
+        "playtime_seconds": 36000
+      },
+      "reward": {
+        "knowledge": 2000,
+        "funding": 4000,
+        "reputation": 30
+      }
+    }
+  ]
+}

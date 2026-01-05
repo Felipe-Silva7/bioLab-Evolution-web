@@ -1,0 +1,367 @@
+{
+  "acts": [
+    {
+      "id": "act_1",
+      "name": "O Estagiário",
+      "description": "Você acaba de entrar no laboratório como estagiário. Tudo é novo e emocionante!",
+      "level": 1,
+      "knowledgeRequired": 0,
+      "objectives": [
+        {
+          "id": "obj_1_1",
+          "description": "Complete seu primeiro experimento de cultivo",
+          "type": "experiment",
+          "target": "culture_growth",
+          "reward": { "knowledge": 100, "funding": 200 }
+        },
+        {
+          "id": "obj_1_2",
+          "description": "Responda 5 perguntas corretamente",
+          "type": "quiz",
+          "target": 5,
+          "reward": { "knowledge": 50, "reputation": 10 }
+        },
+        {
+          "id": "obj_1_3",
+          "description": "Adquira seu primeiro equipamento (Microscópio)",
+          "type": "equipment",
+          "target": "microscope",
+          "reward": { "knowledge": 150, "funding": 100 }
+        }
+      ],
+      "narrative": [
+        "Bem-vindo ao Laboratório de Biotecnologia Avançada! Como novo estagiário, você terá a oportunidade de aprender os fundamentos da pesquisa científica.",
+        "Seu mentor, Dr. Silva, mostra-lhe o laboratório: 'Aqui é onde a magia acontece. Cada experimento é uma oportunidade de descoberta.'",
+        "Sua primeira tarefa é dominar o cultivo básico de micro-organismos. Parece simples, mas é o alicerce de toda biotecnologia.",
+        "Após seu primeiro sucesso, o Dr. Silva aprova: 'Bom trabalho! Agora você está pronto para equipamentos mais avançados.'"
+      ],
+      "unlocks": ["pcr_amplification", "incubator"],
+      "completionReward": {
+        "knowledge": 500,
+        "funding": 1000,
+        "reputation": 20,
+        "unlock": "act_2"
+      }
+    },
+    {
+      "id": "act_2",
+      "name": "O Pesquisador",
+      "description": "Agora como pesquisador júnior, você enfrenta desafios mais complexos e toma suas próprias decisões.",
+      "level": 5,
+      "knowledgeRequired": 2000,
+      "objectives": [
+        {
+          "id": "obj_2_1",
+          "description": "Domine a técnica de PCR",
+          "type": "experiment",
+          "target": "pcr_amplification",
+          "reward": { "knowledge": 300, "funding": 500 }
+        },
+        {
+          "id": "obj_2_2",
+          "description": "Sequencie seu primeiro gene",
+          "type": "experiment",
+          "target": "dna_sequencing",
+          "reward": { "knowledge": 400, "reputation": 15 }
+        },
+        {
+          "id": "obj_2_3",
+          "description": "Alcance 70% de reputação",
+          "type": "stat",
+          "target": "reputation",
+          "value": 70,
+          "reward": { "knowledge": 200, "funding": 800 }
+        },
+        {
+          "id": "obj_2_4",
+          "description": "Registre sua primeira patente",
+          "type": "patent",
+          "target": "basic_culture",
+          "reward": { "knowledge": 1000, "funding": 2000 }
+        }
+      ],
+      "narrative": [
+        "Parabéns pela promoção! Como pesquisador júnior, você agora tem mais responsabilidades e liberdade.",
+        "O Dr. Silva confia em você: 'O laboratório está crescendo, e precisamos expandir nossas capacidades técnicas.'",
+        "Novos equipamentos chegam ao laboratório, permitindo experimentos mais sofisticados. A emoção da descoberta é palpável.",
+        "Seu trabalho chama a atenção da comunidade científica. Você é convidado para sua primeira conferência!",
+        "Com resultados consistentes, você começa a pensar em patentes e aplicações comerciais para sua pesquisa."
+      ],
+      "unlocks": ["fermentation", "thermocycler", "centrifuge"],
+      "completionReward": {
+        "knowledge": 2000,
+        "funding": 5000,
+        "reputation": 40,
+        "unlock": "act_3"
+      }
+    },
+    {
+      "id": "act_3",
+      "name": "O Empresário-Cientista",
+      "description": "Você agora lidera seu próprio laboratório, equilibrando pesquisa científica com empreendedorismo.",
+      "level": 10,
+      "knowledgeRequired": 5000,
+      "objectives": [
+        {
+          "id": "obj_3_1",
+          "description": "Escale um processo de fermentação industrial",
+          "type": "experiment",
+          "target": "fermentation",
+          "reward": { "knowledge": 800, "funding": 2000 }
+        },
+        {
+          "id": "obj_3_2",
+          "description": "Registre 3 patentes de nível avançado",
+          "type": "patent_count",
+          "target": 3,
+          "tier": "advanced",
+          "reward": { "knowledge": 1500, "reputation": 30 }
+        },
+        {
+          "id": "obj_3_2",
+          "description": "Construa um laboratório completo (8 equipamentos)",
+          "type": "equipment_count",
+          "target": 8,
+          "reward": { "knowledge": 1000, "funding": 5000 }
+        },
+        {
+          "id": "obj_3_4",
+          "description": "Alcance 50.000 em financiamento total",
+          "type": "funding",
+          "target": 50000,
+          "reward": { "knowledge": 2000, "reputation": 25 }
+        }
+      ],
+      "narrative": [
+        "Seu sucesso como pesquisador atraiu investidores. É hora de fundar sua própria empresa de biotecnologia!",
+        "Você aluga um espaço maior e contrata sua primeira equipe. A responsabilidade é grande, mas a oportunidade é maior.",
+        "Concorrentes surgem no mercado. Você precisa inovar constantemente para se manter à frente.",
+        "Decisões éticas se tornam mais complexas. Equilibrar lucro com responsabilidade social é um desafio diário.",
+        "Seus produtos começam a impactar vidas reais. A satisfação vai além dos resultados financeiros.",
+        "A empresa cresce rapidamente. Você se torna uma referência no setor de biotecnologia."
+      ],
+      "unlocks": ["crispr_editing", "sequencer", "spectrometer", "freezer"],
+      "completionReward": {
+        "knowledge": 5000,
+        "funding": 20000,
+        "reputation": 60,
+        "unlock": "act_4"
+      }
+    },
+    {
+      "id": "act_4",
+      "name": "O Nobel",
+      "description": "No ápice de sua carreira, você busca contribuições revolucionárias para a humanidade.",
+      "level": 15,
+      "knowledgeRequired": 10000,
+      "objectives": [
+        {
+          "id": "obj_4_1",
+          "description": "Domine a edição genética CRISPR",
+          "type": "experiment",
+          "target": "crispr_editing",
+          "reward": { "knowledge": 2000, "reputation": 40 }
+        },
+        {
+          "id": "obj_4_2",
+          "description": "Desenvolva uma terapia genética revolucionária",
+          "type": "patent",
+          "target": "crispr_therapy",
+          "reward": { "knowledge": 5000, "funding": 50000 }
+        },
+        {
+          "id": "obj_4_3",
+          "description": "Alcance 95% de reputação mundial",
+          "type": "stat",
+          "target": "reputation",
+          "value": 95,
+          "reward": { "knowledge": 3000, "funding": 25000 }
+        },
+        {
+          "id": "obj_4_4",
+          "description": "Mantenha score ético acima de 90%",
+          "type": "stat",
+          "target": "ethicsScore",
+          "value": 90,
+          "duration": 30,
+          "reward": { "reputation": 20, "funding": 10000 }
+        }
+      ],
+      "narrative": [
+        "Sua empresa é agora uma multinacional de biotecnologia. Mas você busca algo maior: um legado duradouro.",
+        "Você retorna à pesquisa básica, buscando respostas para as grandes questões da biologia.",
+        "A comunidade científica observa cada movimento seu. Suas descobertas podem mudar o mundo.",
+        "Dilemas éticos atingem escala global. Cada decisão afeta milhões de pessoas.",
+        "O trabalho duro de décadas culmina em uma descoberta revolucionária. O prêmio Nobel parece uma possibilidade real.",
+        "Independentemente do reconhecimento formal, você sabe que contribuiu para o avanço da humanidade. Esta é sua maior conquista."
+      ],
+      "unlocks": ["hood", "synthetic_biology_research"],
+      "endings": [
+        {
+          "id": "ending_nobel",
+          "name": "Prêmio Nobel",
+          "description": "Sua contribuição para a terapia genética é reconhecida com o maior prêmio científico.",
+          "requirements": {
+            "patents": ["crispr_therapy"],
+            "reputation": 100,
+            "ethicsScore": 95
+          },
+          "reward": {
+            "knowledge": 10000,
+            "funding": 1000000,
+            "reputation": 100,
+            "title": "Prêmio Nobel de Medicina"
+          }
+        },
+        {
+          "id": "ending_entrepreneur",
+          "name": "Magnata da Biotecnologia",
+          "description": "Você constrói um império empresarial que domina a indústria de biotecnologia.",
+          "requirements": {
+            "funding": 1000000,
+            "patents": 10,
+            "reputation": 90
+          },
+          "reward": {
+            "knowledge": 5000,
+            "funding": 5000000,
+            "reputation": 95,
+            "title": "CEO da Maior Empresa de Biotecnologia"
+          }
+        },
+        {
+          "id": "ending_teacher",
+          "name": "Mestre e Mentor",
+          "description": "Você dedica sua vida a ensinar a próxima geração de cientistas.",
+          "requirements": {
+            "reputation": 85,
+            "ethicsScore": 95,
+            "completedExperiments": 25
+          },
+          "reward": {
+            "knowledge": 3000,
+            "reputation": 100,
+            "legacy": "Gerações de Cientistas"
+          }
+        },
+        {
+          "id": "ending_philanthropist",
+          "name": "Filantropo Global",
+          "description": "Você usa sua fortuna para combater doenças e melhorar vidas em todo o mundo.",
+          "requirements": {
+            "funding": 500000,
+            "ethicsScore": 100,
+            "reputation": 95
+          },
+          "reward": {
+            "knowledge": 2000,
+            "reputation": 100,
+            "impact": "Milhões de Vidas Salvas"
+          }
+        }
+      ]
+    }
+  ],
+  
+  "characters": [
+    {
+      "id": "dr_silva",
+      "name": "Dr. Silva",
+      "role": "Mentor",
+      "description": "Cientista experiente que guia o jogador nos primeiros passos",
+      "appearsIn": ["act_1", "act_2"]
+    },
+    {
+      "id": "ana_costa",
+      "name": "Ana Costa",
+      "role": "Colega de Laboratório",
+      "description": "Pesquisadora ambiciosa que se torna colaboradora e depois concorrente",
+      "appearsIn": ["act_1", "act_2", "act_3"]
+    },
+    {
+      "id": "investor",
+      "name": "Carlos Mendes",
+      "role": "Investidor",
+      "description": "Capitalista de risco interessado em biotecnologia",
+      "appearsIn": ["act_2", "act_3"]
+    },
+    {
+      "id": "ethics_board",
+      "name": "Comitê de Ética",
+      "role": "Regulador",
+      "description": "Grupo que avalia as implicações éticas da pesquisa",
+      "appearsIn": ["act_3", "act_4"]
+    },
+    {
+      "id": "nobel_committee",
+      "name": "Comitê do Nobel",
+      "role": "Avaliador Final",
+      "description": "Representantes do prêmio mais prestigiado da ciência",
+      "appearsIn": ["act_4"]
+    }
+  ],
+  
+  "events": [
+    {
+      "id": "event_first_breakthrough",
+      "act": 1,
+      "trigger": "complete_experiment:culture_growth",
+      "description": "Seu primeiro experimento bem-sucedido! O Dr. Silva está impressionado.",
+      "effect": { "reputation": 10, "knowledge": 50 }
+    },
+    {
+      "id": "event_first_patent",
+      "act": 2,
+      "trigger": "register_patent",
+      "description": "Sua primeira patente é aprovada! Investidores começam a aparecer.",
+      "effect": { "funding": 1000, "reputation": 20 }
+    },
+    {
+      "id": "event_competition",
+      "act": 3,
+      "trigger": "reputation:70",
+      "description": "Uma empresa concorrente surge, oferecendo desafios éticos e científicos.",
+      "choices": [
+        {
+          "text": "Competir agressivamente",
+          "effect": { "funding": 2000, "ethicsScore": -10, "reputation": 5 }
+        },
+        {
+          "text": "Buscar colaboração",
+          "effect": { "reputation": 15, "knowledge": 300, "funding": -500 }
+        },
+        {
+          "text": "Inovar para superar",
+          "effect": { "knowledge": 500, "funding": -1000, "reputation": 10 }
+        }
+      ]
+    },
+    {
+      "id": "event_ethical_dilemma",
+      "act": 4,
+      "trigger": "knowledge:8000",
+      "description": "Sua pesquisa pode curar doenças, mas também tem aplicações controversas.",
+      "choices": [
+        {
+          "text": "Publicar tudo abertamente",
+          "effect": { "knowledge": 1000, "reputation": 20, "ethicsScore": -15 }
+        },
+        {
+          "text": "Restringir o acesso",
+          "effect": { "reputation": 10, "ethicsScore": 20, "funding": -2000 }
+        },
+        {
+          "text": "Criar um comitê de supervisão",
+          "effect": { "reputation": 15, "ethicsScore": 10, "knowledge": 500 }
+        }
+      ]
+    },
+    {
+      "id": "event_nobel_nomination",
+      "act": 4,
+      "trigger": "patent:crispr_therapy",
+      "description": "Seu trabalho com CRISPR é indicado ao Prêmio Nobel!",
+      "effect": { "reputation": 30, "knowledge": 1000 }
+    }
+  ]
+}

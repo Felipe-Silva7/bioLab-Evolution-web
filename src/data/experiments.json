@@ -1,0 +1,83 @@
+{
+  "culture_growth": {
+    "id": "culture_growth",
+    "name": "Cultivo em Placa de Petri",
+    "icon": "🧫",
+    "type": "match3",
+    "difficulty": "Fácil",
+    "duration": 180,
+    "description": "Aprenda os fundamentos do cultivo de micro-organismos",
+    "requirements": {
+      "knowledge": 0,
+      "equipment": []
+    },
+    "rewards": {
+      "knowledge": 50,
+      "funding": 50,
+      "experience": 100,
+      "samples": {
+        "aspergillus_niger": 1
+      }
+    },
+    "unlocks": ["pcr_amplification"],
+    "educational": {
+      "concept": "Meios de Cultura",
+      "description": "Micro-organismos precisam de glicose (carbono), aminoácidos (nitrogênio), minerais e vitaminas para crescer. Cada nutriente tem função específica no metabolismo celular.",
+      "realWorld": "Usado industrialmente para produção de antibióticos (penicilina), enzimas digestivas e proteínas recombinantes como insulina."
+    }
+  },
+  "pcr_amplification": {
+    "id": "pcr_amplification",
+    "name": "PCR - Amplificação de DNA",
+    "icon": "🧬",
+    "type": "timing",
+    "difficulty": "Médio",
+    "duration": 240,
+    "description": "Domine os ciclos de temperatura da PCR",
+    "requirements": {
+      "knowledge": 100,
+      "equipment": ["thermocycler"]
+    },
+    "rewards": {
+      "knowledge": 150,
+      "funding": 200,
+      "experience": 300,
+      "samples": {
+        "ecoli": 2
+      }
+    },
+    "unlocks": ["dna_sequencing"],
+    "educational": {
+      "concept": "PCR - Reação em Cadeia da Polimerase",
+      "description": "PCR amplifica DNA exponencialmente através de 3 fases: 95°C (desnaturação), 55°C (anelamento de primers), 72°C (extensão pela DNA polimerase). Após 30 ciclos = 1 bilhão de cópias!",
+      "realWorld": "Essencial para diagnóstico de COVID-19, testes de paternidade, medicina forense e pesquisa genética."
+    }
+  },
+  "fermentation": {
+    "id": "fermentation",
+    "name": "Fermentação Industrial",
+    "icon": "⚗️",
+    "type": "management",
+    "difficulty": "Médio",
+    "duration": 300,
+    "description": "Gerencie um biorreator em tempo real",
+    "requirements": {
+      "knowledge": 200,
+      "equipment": ["bioreactor"]
+    },
+    "rewards": {
+      "knowledge": 200,
+      "funding": 400,
+      "experience": 400,
+      "samples": {
+        "penicillium": 3
+      }
+    },
+    "unlocks": [],
+    "educational": {
+      "concept": "Fermentação em Larga Escala",
+      "description": "Biorreatores controlam oxigênio, pH, temperatura e nutrientes para maximizar produção microbiana. Fermentação submersa permite produção de antibióticos, enzimas e proteínas.",
+      "realWorld": "Produção industrial de cerveja, vinho, iogurte, antibióticos e biocombustíveis (etanol)."
+    }
+  }
+}
